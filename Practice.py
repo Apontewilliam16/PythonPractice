@@ -1,27 +1,26 @@
 import random
+#Number Guessing Project 
+guessesTaken = 0 
+number = random.randint(1,10)
 
-number = random.randrange(1,10,2)
+while guessesTaken < 5:
+    response = int(input("Pick a Number 1 to 10? \t"))
 
-print (number)
-while True :
-    try:
-        #input to validate
-        response = int(input("Pick a Number 1 - 10? \t"))
-    except ValueError:
-        print("Please enter a number!")
-        #better try again... Return to the start of the loop
+    guessesTaken = guessesTaken +1
 
-        continue
-    else:
-        #we're ready to exit the loop.
+    if number > response :
+        print("Its greater than", response)
+    if number < response :
+        print("Its less than", response)
+
+    if number == response :
         break
 
-if number == response :
-    print (" You got it")
+if response == number:
+    guessesTaken = str(guessesTaken)
+    print("Nice Work You Guess the Number in " + guessesTaken + "guesses!")
 
-elif number > response :
-    print("Its greater than", response)
-
-elif number < response :
-     print("Its less than", response)
-
+if response != number:
+    number = str(number)
+    print('Nope. The number I was thinking of was' + number)
+       
